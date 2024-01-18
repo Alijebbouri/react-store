@@ -54,29 +54,19 @@ function Filter({addToCart}) {
 
     return (
         <div className='container mx-auto p-4'>
-            <div className='flex justify-between items-center mb-4'>
-                <div>
-                    <select
-                        value={selectedCategory}
-                        onChange={handleCategoryChange}
-                        className='px-4 py-2 rounded-lg border border-gray-300'
-                    >
-                        <option value='all'>All</option>
-                        {categories.map((category, index) => (
-                            <option key={index} value={category}>
-                                {category}
-                            </option>
-                        ))}
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center md:flex md:justify-between md:items-center mb-4">
+                <div className="mb-4 sm:mb-0 md:w-auto">
+                    <select value={selectedCategory} onChange={handleCategoryChange} className="w-full px-4 py-2 rounded-lg border border-gray-300">
+                        <option value="all">All</option>
+                            {categories.map((category, index) => (
+                                <option key={index} value={category}>
+                                    {category}
+                                </option>
+                            ))}
                     </select>
                 </div>
-                <div>
-                    <input
-                        name='search'
-                        placeholder='Type here to search'
-                        value={searchTerm}
-                        onChange={handleSearch}
-                        className='px-4 py-2 rounded-lg border border-gray-300 '
-                    />
+                <div className="w-full sm:w-auto ">
+                    <input name="search" placeholder="Type here to search" value={searchTerm} onChange={handleSearch} className="w-full px-4 py-2 rounded-lg border border-gray-300"/>
                 </div>
             </div>
             {filteredProducts.length === 0 ? (
